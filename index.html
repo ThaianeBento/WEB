@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mutirão Amigo - Tela Inicial</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            background: #f9fafb;
+            color: #4a5568;
+        }
+        header, footer {
+            padding: 16px 40px;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 1px 3px rgb(0 0 0 / 0.1);
+        }
+        nav a {
+            margin-left: 24px;
+            text-decoration: none;
+            color: #2d3748;
+            font-weight: 500;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 700;
+            font-size: 18px;
+            color: #38b2ac;
+            text-decoration: none;
+        }
+        .logo svg {
+            width: 32px;
+            height: 32px;
+            fill: #38b2ac;
+        }
+        main {
+            max-width: 960px;
+            margin: 48px auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 2.75rem;
+            margin-bottom: 16px;
+            font-weight: 900;
+            line-height: 1.2;
+        }
+        h1 .highlight-green {
+            color: #38b2ac;
+        }
+        h1 .highlight-blue {
+            color: #4299e1;
+        }
+        p.subtitle {
+            font-size: 1rem;
+            color: #718096;
+            max-width: 600px;
+            margin: 0 auto 32px;
+            line-height: 1.5;
+        }
+        .btn-primary {
+            background-color: #38b2ac;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: background-color 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #2c7a7b;
+        }
+        .btn-secondary {
+            background: white;
+            border: 1px solid #e2e8f0;
+            padding: 12px 24px;
+            border-radius: 6px;
+            margin-left: 16px;
+            cursor: pointer;
+            font-weight: 600;
+            color: #2d3748;
+            transition: background-color 0.3s ease;
+        }
+        .btn-secondary:hover {
+            background: #edf2f7;
+        }
+        .btn-primary svg {
+            width: 16px;
+            height: 16px;
+            stroke: white;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            fill: none;
+        }
+        section {
+            margin-top: 64px;
+        }
+        h2 {
+            font-weight: 700;
+            font-size: 1.25rem;
+            margin-bottom: 8px;
+            color: #1a202c;
+        }
+        h3 {
+            font-weight: 700;
+            margin-bottom: 4px;
+            font-size: 1rem;
+            color: #1a202c;
+        }
+        .section-subtitle {
+            margin-bottom: 32px;
+            font-size: 0.875rem;
+            color: #718096;
+        }
+        .grid-cards {
+            display: grid;
+            gap: 24px;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        }
+        .card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 1px 2px rgb(0 0 0 / 0.05);
+        }
+        .card-icon {
+            width: 40px;
+            height: 40px;
+            margin: 0 auto 12px;
+            background: linear-gradient(135deg, #38b2ac 0%, #4299e1 100%);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            fill: white;
+        }
+        .card-icon svg {
+            width: 20px;
+            height: 20px;
+        }
+        .card-number {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #38b2ac;
+            margin-bottom: 6px;
+        }
+        .card-text {
+            font-size: 0.875rem;
+            color: #4a5568;
+        }
+        .services .card-icon {
+            background: #38b2ac;
+            fill: white;
+        }
+        .services .card-icon svg {
+            fill: white;
+        }
+        .footer-cta {
+            background: linear-gradient(135deg, #4299e1 0%, #38b2ac 100%);
+            color: white;
+            padding: 32px 20px;
+            margin-top: 64px;
+            border-radius: 8px;
+        }
+        .footer-cta h2 {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+        .footer-cta p {
+            max-width: 600px;
+            margin: 0 auto 20px;
+            font-weight: 500;
+            font-size: 1rem;
+        }
+        .footer-cta form {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .footer-cta input[type="text"] {
+            flex: 1 1 200px;
+            padding: 10px 16px;
+            border-radius: 6px;
+            border: none;
+            font-size: 1rem;
+        }
+        .footer-cta button {
+            padding: 12px 28px;
+            border-radius: 6px;
+            border: none;
+            background: #e2e8f0;
+            color: #2d3748;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .footer-cta button:hover {
+            background-color: #cbd5e0;
+        }
+        footer {
+            flex-direction: column;
+            gap: 6px;
+            font-size: 0.875rem;
+            color: #718096;
+        }
+        footer .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 700;
+            color: #38b2ac;
+            font-size: 18px;
+            margin-bottom: 4px;
+        }
+        footer .footer-logo svg {
+            width: 20px;
+            height: 20px;
+            fill: #38b2ac;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo" aria-label="Mutirão Amigo">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3A5.5 5.5 0 0 1 12 5.09 5.5 5.5 0 0 1 16.5 3c3.08 0 5.5 2.42 5.5 5.5 0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+            Mutirão Amigo
+        </a>
+        <nav>
+            <a href="#">Sobre Nós</a>
+            <a href="#">Serviços</a>
+            <a href="#">Login Sistema</a>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Transformando Vidas, <span class="highlight-green">Um</span><br/><span class="highlight-blue">Animal por Vez</span></h1>
+        <p class="subtitle">
+            A ONG Mutirão Amigo atua há mais de 8 anos promovendo a castração gratuita de animais, contribuindo para o controle populacional e bem-estar animal.
+        </p>
+        <button class="btn-primary" type="button" aria-label="Agendar Castração">
+            Agendar Castração
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+        <button class="btn-secondary" type="button">Saiba Mais</button>
+
+        <section>
+            <h2>Nosso Impacto</h2>
+            <p class="section-subtitle">Números que representam o cuidado e dedicação da nossa equipe ao longo dos anos</p>
+            <div class="grid-cards">
+                <div class="card" aria-label="Animais Castrados">
+                    <div class="card-icon" role="img" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="12" cy="7" r="4"/><path d="M5.5 21a7.5 7.5 0 0 1 13 0"/></svg>
+                    </div>
+                    <div class="card-number">2.847</div>
+                    <div class="card-text">Animais Castrados</div>
+                </div>
+                <div class="card" aria-label="Tutores Atendidos">
+                    <div class="card-icon" role="img" aria-hidden="true" style="background: linear-gradient(135deg, #4299e1 0%, #38b2ac 100%);">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="12" cy="7" r="4"/><path d="M17 21v-2a4 4 0 0 0-8 0v2"/></svg>
+                    </div>
+                    <div class="card-number" style="color:#38b2ac;">1.234</div>
+                    <div class="card-text">Tutores Atendidos</div>
+                </div>
+                <div class="card" aria-label="Mutirões Realizados">
+                    <div class="card-icon" role="img" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/></svg>
+                    </div>
+                    <div class="card-number" style="color:#38b2ac;">47</div>
+                    <div class="card-text">Mutirões Realizados</div>
+                </div>
+                <div class="card" aria-label="Anos de Trabalho">
+                    <div class="card-icon" role="img" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                    </div>
+                    <div class="card-number" style="color:#38b2ac;">8</div>
+                    <div class="card-text">Anos de Trabalho</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="services" style="margin-top: 48px;">
+            <h2>Nossos Serviços</h2>
+            <p class="section-subtitle">Oferecemos um atendimento completo e humanizado para o bem-estar dos animais</p>
+            <div class="grid-cards">
+                <div class="card">
+                    <div class="card-icon" role="img" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 21c0-5-7-3-7-10s7-6 7-6 7 1 7 6-7 5-7 10z"/></svg>
+                    </div>
+                    <h3>Castração Gratuita</h3>
+                    <p>Procedimentos cirúrgicos de castração para cães e gatos de famílias de baixa renda.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon" role="img" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/></svg>
+                    </div>
+                    <h3>Mutirões Organizados</h3>
+                    <p>Eventos regulares de castração em massa para atender mais animais.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon" role="img" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><shield/><path d="M12 1v5"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 1V5"/></svg>
+                    </div>
+                    <h3>Cuidados Pós-Operatórios</h3>
+                    <p>Acompanhamento e orientação completa para recuperação dos animais.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon" role="img" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6"/></svg>
+                    </div>
+                    <h3>Atendimento Rápido</h3>
+                    <p>Processo eficiente com agendamento online e gestão otimizada.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <section class="footer-cta">
+        <h2>Faça Parte desta Transformação</h2>
+        <p>Ajude-nos a continuar este trabalho. Agende a castração do seu animal ou contribua como voluntário em nossos mutirões.</p>
+        <form action="#" method="get" role="search" aria-label="Agendar castração ou contribuir">
+            <button type="submit" class="btn-secondary">Agendar Agora</button>
+            <input type="text" placeholder="" aria-label="Campo adicional"/>
+        </form>
+    </section>
+
+    <footer>
+        <div class="footer-logo" aria-label="Logotipo Mutirão Amigo">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3A5.5 5.5 0 0 1 12 5.09 5.5 5.5 0 0 1 16.5 3c3.08 0 5.5 2.42 5.5 5.5 0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+            Mutirão Amigo
+        </div>
+        <div>ONG dedicada ao bem-estar animal através da castração responsável</div>
+        <div>© 2024 Mutirão Amigo. Todos os direitos reservados.</div>
+    </footer>
+</body>
+</html>
